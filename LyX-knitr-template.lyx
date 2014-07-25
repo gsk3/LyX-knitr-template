@@ -1,0 +1,483 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\begin_modules
+knitr
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+LyX/knitr Template
+\end_layout
+
+\begin_layout Author
+Ari B Friedman
+\end_layout
+
+\begin_layout Date
+07/22/2014
+\end_layout
+
+\begin_layout Section
+A little about LyX
+\end_layout
+
+\begin_layout Standard
+LyX makes writing LaTeX easy/pretty.
+ LyX writes 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+ behind the scenes, which then gets compiled into a PDF.
+ So if you have a problem, try searching the LyX help files and web resources,
+ then the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+ ones.
+ Similarly, when writing, if you can't find a feature in LyX, you can hit
+ Control-L to insert raw 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+, which displays as being surrounded by a red box.
+\end_layout
+
+\begin_layout Standard
+The key to LyX is that it doesn't let you determine the exact placement
+ of text easily.
+ This sounds like a bug, but it is a feature.
+ Instead, you specify structure--sections, subsections, titles, etc.--and
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+ chooses how and where to display them.
+ No more hunting around for that font size change somewhere in the giant
+ block of text in Word.
+\end_layout
+
+\begin_layout Standard
+There are some cool features like cross-referencing and bibliographies that
+ you should explore.
+ Plenty of help on the internet.
+\end_layout
+
+\begin_layout Section
+A little about knitr
+\end_layout
+
+\begin_layout Standard
+Just as LyX content gets converted into 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+ and thence to PDF, knitr knits R and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+ together by first compiling the sections of a document written in R, inserting
+ the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+ result into the document, then compiling the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+ to PDF.
+ Writing knitr in LyX works the same way.
+\end_layout
+
+\begin_layout Standard
+Thus all you have to do to insert some R code is hit CONTROL-L to get the
+ red box that means you're typing raw 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+, then use the code which tells knitr to run the R, take the output of that
+ R code and convert it to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+ and insert it into that point in the file.
+ That code is Sexpr.
+ For instance, if we wanted to calculate a sum, we would find that 
+\begin_inset Formula $2+2=$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{ 2+3 }
+\end_layout
+
+\end_inset
+
+.
+ Orwell fans can rejoice.
+\end_layout
+
+\begin_layout Standard
+There's one last step required to get knitr to work in LyX, although it's
+ already set up in this template.
+  Under the Documents menu, click Settings then Modules, and add the 
+\begin_inset Quotes eld
+\end_inset
+
+Rnw (knitr)
+\begin_inset Quotes erd
+\end_inset
+
+ module.
+ Now click the googly eyes to compile the knitr file into PDF.
+\end_layout
+
+\begin_layout Section
+How does this help?
+\end_layout
+
+\begin_layout Standard
+There's a lot you can do with knitr, but on the most basic level, it can
+ enable collaborative, reproducible research by pulling in whatever data
+ your partners output and inserting those numbers directly into the text.
+\end_layout
+
+\begin_layout Section
+How do I do that?
+\end_layout
+
+\begin_layout Subsection
+Load data
+\end_layout
+
+\begin_layout Standard
+Put a code block at the top of your document reading in data.
+ The echo=FALSE, messages=FALSE stuff just makes it silent.
+ The <<>>= and @ are the start and the end of the R code.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<header,echo=FALSE,results='hide',messages=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+suppressPackageStartupMessages(library(scales)) # Lets us use various functions
+ for number formatting, such as comma()
+\end_layout
+
+\begin_layout Plain Layout
+
+#library(foreign) # Lets us load in lots of different data types (Stata,
+ etc.)
+\end_layout
+
+\begin_layout Plain Layout
+
+#read.dta(myStataData.dta)
+\end_layout
+
+\begin_layout Plain Layout
+
+library(jsonlite) # Lets us load JSON objects, which can be exported from
+ many different programs
+\end_layout
+
+\begin_layout Plain Layout
+
+j <- fromJSON("LyX-knitr-example-data.json")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Use some values in your text
+\end_layout
+
+\begin_layout Standard
+Data's loaded now as j.
+ Use elements in your text by in-lining the R code with 
+\backslash
+Sexpr.
+ For instance, we found that the mean value of something or the other was
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{j$result1}
+\end_layout
+
+\end_inset
+
+.
+ We found that the mean value of something else was 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{j$result3[1]}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\pm$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{j$result3[2]}
+\end_layout
+
+\end_inset
+
+.
+ Because it's 
+\begin_inset Quotes eld
+\end_inset
+
+live
+\begin_inset Quotes erd
+\end_inset
+
+ R code, you can even round in-line, as with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{ round( j$result2, 2 )}
+\end_layout
+
+\end_inset
+
+.
+ Or add commas, as with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+Sexpr{ comma( j$result4 )}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Click the googly-eyes in the top left
+\end_layout
+
+\begin_layout Standard
+Remember, you have to compile to PDF each time you want the results to update.
+\end_layout
+
+\begin_layout Subsection
+Explore
+\end_layout
+
+\begin_layout Standard
+You can include dynamically-generated graphs, tables, etc.
+ Anything 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+LaTeX
+\end_layout
+
+\end_inset
+
+ or R can do, knitr and LyX can do.
+\end_layout
+
+\end_body
+\end_document
